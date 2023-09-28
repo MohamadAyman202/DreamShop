@@ -52,7 +52,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
         try {
             $data = $request->except('_token', 'collection_id');
             if ($data) {

@@ -1,9 +1,8 @@
 <div>
     <div class="mb-3">
         <label for="" class="form-label">Title</label>
-        <input type="text" name="title" id="title"
-            class="form-control @error('title') is-invalid @enderror"wire:modal="slug" wire:model="title"
-            placeholder="Title" aria-describedby="helpId" wire:keyup="generateSlug">
+        <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror"
+            wire:model="title" placeholder="Title" aria-describedby="helpId" wire:keyup="generateSlug">
         @error('title')
             <small id="helpId" class="text-danger">{{ $message }}</small>
         @enderror

@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('withdrawal_accounts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
-            $table->string('images')->nullable();
-            $table->tinyInteger('status');
-            $table->string('meta_title');
-            $table->text('meta_description');
+            $table->string('account_number');
+            $table->string('account_name');
+            $table->string('bank_name');
+            $table->string('branch_name');
+            $table->tinyInteger('default')->default(0);
             $table->foreignId('admin_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('withdrawal_accounts');
     }
 };

@@ -2,20 +2,16 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Language;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 
-class CreateCategory extends Component
+class CreateSlug extends Component
 {
-    use WithFileUploads;
     public $title;
     public $slug;
-    public $image;
 
     public function render()
     {
-        return view('livewire.create-category');
+        return view('livewire.create-slug');
     }
 
     public function generateSlug()

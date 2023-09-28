@@ -6,7 +6,7 @@ use App\Http\Requests\BrandsRequest;
 use App\Models\Admin;
 use App\Models\Brand;
 use Illuminate\Http\Request;
-use App\trait\FileUpload;
+use App\Trait\FileUpload;
 
 class BrandController extends Controller
 {

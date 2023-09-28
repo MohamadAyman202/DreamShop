@@ -1,4 +1,4 @@
-<?php $title = 'Products'; ?>
+<?php $title = 'Withdrawal Accounts'; ?>
 @extends('admin.layouts.app')
 @section('title')
     {{ $title }}
@@ -23,7 +23,7 @@
             <div class="card mb-0">
                 <div class="card-body">
                     <div class="pb-3 pt-1 text-end">
-                        <a href="{{ route('product.create') }}" class="btn btn-primary ps-4 pe-4">Create
+                        <a href="{{ route('accounts.create') }}" class="btn btn-primary ps-4 pe-4">Create
                             {{ $title }}</a>
                     </div>
                     <div class="tab-content">
@@ -34,62 +34,44 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Title</th>
-                                        <th>Category</th>
-                                        <th> Sub category</th>
-                                        <th>Brand</th>
-                                        <th>Tax rule</th>
-                                        <th>Purchased(ج.م.)</th>
-                                        <th>Selling(ج.م.)</th>
-                                        <th>Offered(ج.م.)</th>
-                                        <th>Status</th>
+                                        <th>Default</th>
+                                        <th>Name</th>
+                                        <th>Account number</th>
+                                        <th>Bank</th>
+                                        <th>Branch</th>
                                         <th>Created At</th>
                                         <th>Actions</th>
-
                                     </tr>
                                 </thead>
 
-                                <tbody class="text-center">
+                                <tbody>
                                     <?php $i = 0; ?>
-                                    @foreach ($products as $product)
+                                    @foreach ($accounts as $account)
                                         <?php $i++; ?>
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td class="d-flex justify-content-between align-items-center ">
-                                                <div class="imagess" style="width:60px">
-                                                    <img style="max-width: 50px" src="{{ asset($product->images[0]) }}"
-                                                        alt="" class="me-2">
-                                                </div>
-                                                <div class="title d-flex justify-content-center align-items-center"
-                                                    style="padding:10px;width:100%">
-                                                    {{ $product->title }}
-                                                </div>
-                                            </td>
-                                            <td>{{ $product->category->title }}</td>
-                                            <td>{{ $product->sub_category->title }}</td>
-                                            <td>{{ $product->brand->title }}</td>
-                                            <td>{{ $product->tax->title }}</td>
-                                            <td>{{ $product->purchased }}</td>
-                                            <td>{{ $product->selling }}</td>
-                                            <td>{{ $product->offered }}</td>
+                                            <td>{{ $account->title }}</td>
+
                                             <td>
-                                                @if ($product->status == 1)
+                                                @if ($account->default == 1)
                                                     <span
-                                                        class="bg-success ps-3 pe-3 pt-1 pb-1 rounded text-light">Public</span>
+                                                        class="bg-success ps-3 pe-3 pt-1 pb-1 rounded text-light">Yes</span>
                                                 @else
                                                     <span
-                                                        class="bg-danger ps-3 pe-3 pt-1 pb-1 rounded text-light">Private</span>
+                                                        class="bg-danger ps-3 pe-3 pt-1 pb-1 rounded text-light">No</span>
                                                 @endif
                                             </td>
-                                            <td>{{ $product->created_at }}</td>
+                                            <td>{{ $account->account_name }}</td>
+                                            <td>{{ $account->account_number }}</td>
+                                            <td>{{ $account->bank_name }}</td>
+                                            <td>{{ $account->branch_name }}</td>
+                                            <td>{{ $account->created_at }}</td>
                                             <td>
-                                                <a href="{{ route('product.show', $product->id) }}" title="see">
-                                                    <i class='uil uil-eye btn-dark btn-sm'></i>
-                                                </a>
-                                                <a href="{{ route('product.edit', $product->id) }}" title="Edit">
+                                                <a href="{{ route('accounts.edit', $account->id) }}">
                                                     <i class='uil uil-pen btn-info btn-sm'></i>
                                                 </a>
-                                                <a href="" data-bs-toggle="modal" data-id="{{ $product->id }}"
-                                                    title="Delete" data-title="{{ $product->title }}"
+                                                <a href="" data-bs-toggle="modal" data-id="{{ $account->id }}"
+                                                    data-title="{{ $account->title }}"
                                                     data-bs-target="#danger-header-modal">
                                                     <i class='uil uil-trash btn-danger btn-sm'></i>
                                                 </a>
@@ -110,7 +92,7 @@
     <div id="danger-header-modal" class="modal fade" tabindex="-1" role="dialog"
         aria-labelledby="danger-header-modalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form action="{{ route('product.destroy', 'destroy') }}" method="post">
+            <form action="{{ route('accounts.destroy', 'destroy') }}" method="post">
                 @csrf
                 @method('delete')
                 <div class="modal-content">

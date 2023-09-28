@@ -136,8 +136,12 @@ class FlashSaleController extends Controller
      * @param  \App\Models\Flash_sale  $flash_sale
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Flash_sale $flash_sale)
+    public function destroy(Request $request)
     {
-        //
+        if (isset($request->id)) {
+            Flash_sale::query()->findOrFail($request->id)->delete();
+            return redirect()->back()->with('success', 'Successfully Deleted Flash Sales');
+        }
+        return redirect()->back()->with('error', 'Not Successfully Deleted Flash Sales');
     }
 }

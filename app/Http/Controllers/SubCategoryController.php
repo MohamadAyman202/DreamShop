@@ -7,7 +7,7 @@ use App\Models\Admin;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
-use App\trait\FileUpload;
+use App\Trait\FileUpload;
 
 class SubCategoryController extends Controller
 {

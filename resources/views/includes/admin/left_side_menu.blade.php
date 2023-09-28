@@ -112,156 +112,43 @@
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="{{ route('flash_sales.index') }}"  class="side-nav-link">
+                            <a href="{{ route('flash_sales.index') }}" class="side-nav-link">
                                 <i class="mdi mdi-sale"></i>
                                 <span> Flash Sales </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false"
-                                aria-controls="sidebarLayouts" class="side-nav-link">
-                                <i class="uil-window"></i>
-                                <span> Layouts </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarLayouts">
-                                <ul class="side-nav-second-level">
-                                    <li>
-                                        <a href="layouts-horizontal.html">Horizontal</a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-detached.html">Detached</a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-full.html">Full</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="side-nav-title side-nav-item mt-1">Components</li>
-
-                        <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarBaseUI" aria-expanded="false"
-                                aria-controls="sidebarBaseUI" class="side-nav-link">
-                                <i class="uil-box"></i>
-                                <span> Base UI </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarBaseUI">
-                                <ul class="side-nav-second-level">
-                                    <li>
-                                        <a href="ui-accordions.html">Accordions</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-alerts.html">Alerts</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-avatars.html">Avatars</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-badges.html">Badges</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-breadcrumb.html">Breadcrumb</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-buttons.html">Buttons</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-cards.html">Cards</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-carousel.html">Carousel</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-dropdowns.html">Dropdowns</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-embed-video.html">Embed Video</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-grid.html">Grid</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-list-group.html">List Group</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-modals.html">Modals</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-notifications.html">Notifications</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-offcanvas.html">Offcanvas</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-placeholders.html">Placeholders</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-pagination.html">Pagination</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-popovers.html">Popovers</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-progress.html">Progress</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-ribbons.html">Ribbons</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-spinners.html">Spinners</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-tabs.html">Tabs</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-tooltips.html">Tooltips</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-typography.html">Typography</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarExtendedUI" aria-expanded="false"
-                                aria-controls="sidebarExtendedUI" class="side-nav-link">
+                            <a href="{{ route('users.index') }}" class="side-nav-link">
                                 <i class="uil-package"></i>
-                                <span> Extended UI </span>
-                                <span class="menu-arrow"></span>
+                                <span> users </span>
                             </a>
-                            <div class="collapse" id="sidebarExtendedUI">
-                                <ul class="side-nav-second-level">
-                                    <li>
-                                        <a href="extended-dragula.html">Dragula</a>
-                                    </li>
-                                    <li>
-                                        <a href="extended-range-slider.html">Range Slider</a>
-                                    </li>
-                                    <li>
-                                        <a href="extended-ratings.html">Ratings</a>
-                                    </li>
-                                    <li>
-                                        <a href="extended-scrollbar.html">Scrollbar</a>
-                                    </li>
-                                    <li>
-                                        <a href="extended-scrollspy.html">Scrollspy</a>
-                                    </li>
-                                    <li>
-                                        <a href="extended-treeview.html">Treeview</a>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="widgets.html" class="side-nav-link">
+                            <a href="{{ route('roles.index') }}" class="side-nav-link">
+                                <i class="uil-window"></i>
+                                <span> Roles </span>
+                            </a>
+                        </li>
+
+
+                        <li class="side-nav-item">
+                            <a href="{{ route('accounts.index') }}" class="side-nav-link">
+                                <i class="uil-box"></i>
+                                <span> Accounts </span>
+                            </a>
+                            
+
+                        </li>
+
+
+
+                        <li class="side-nav-item">
+                            <a href="{{ route("pages.index") }}" class="side-nav-link">
                                 <i class="uil-layer-group"></i>
-                                <span> Widgets </span>
+                                <span> Pages </span>
                             </a>
                         </li>
 

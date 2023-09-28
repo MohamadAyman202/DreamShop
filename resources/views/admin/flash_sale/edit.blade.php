@@ -147,6 +147,7 @@
                             <div class="text-center">
                                 <button type="submit" class="btn btn-md btn-primary m-3">Submit</button>
                             </div>
+                        </div>
                     </form>
                 </div>
             </div>
