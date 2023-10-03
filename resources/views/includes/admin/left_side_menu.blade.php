@@ -153,25 +153,11 @@
                         </li>
 
                         <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarIcons" aria-expanded="false"
-                                aria-controls="sidebarIcons" class="side-nav-link">
+                            <a href="{{ route("home_sliders.index") }}" class="side-nav-link">
                                 <i class="uil-streering"></i>
-                                <span> Icons </span>
-                                <span class="menu-arrow"></span>
+                                <span> Home Sliders </span>
                             </a>
-                            <div class="collapse" id="sidebarIcons">
-                                <ul class="side-nav-second-level">
-                                    <li>
-                                        <a href="icons-dripicons.html">Dripicons</a>
-                                    </li>
-                                    <li>
-                                        <a href="icons-mdi.html">Material Design</a>
-                                    </li>
-                                    <li>
-                                        <a href="icons-unicons.html">Unicons</a>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </li>
 
                         <li class="side-nav-item">

@@ -1,6 +1,10 @@
 .box-size,
 .icons-box2,
-.image {
+.icons-box,
+.links_image2,
+.image,
+.item1,
+.item2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +17,9 @@
     max-width: 300px !important;
     height: 300px !important;
 }
+.links_image2 {
+    height: 610px;
+}
 
 .image,
 .box-size {
@@ -20,4 +27,43 @@
 }
 .icons-box {
     font-size: 120px;
+}
+.parents {
+    display: flex;
+    height: 610px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.item1,
+.item2 {
+    height: 300px;
+    position: relative;
+}
+.btns {
+    z-index: 1;
+}
+.box {
+    position: relative;
+    flex-basis: 22%;
+}
+.links_image {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+.sliders {
+    flex-basis: 78%;
+    margin-right: 10px;
+}
+
+.sliders,
+.item2,
+.item1 {
+    border: 1px solid #ddd;
+}
+
+.item1 {
+    margin-bottom: 10px;
 }

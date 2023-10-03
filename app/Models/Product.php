@@ -51,4 +51,8 @@ class Product extends Model
     {
         return $this->belongsToMany(Flash_sale::class, 'flash_sale_product')->withTimestamps();
     }
+
+    public function home_slider():BelongsToMany {
+        return $this->belongsToMany(Home_slider::class, 'home_slider_products')->withTimestamps();
+    }
 }

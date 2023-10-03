@@ -8,6 +8,8 @@ use App\Http\Controllers\BundleDealsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\FlashSaleController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeSliderController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
@@ -16,6 +18,7 @@ use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\TaxRuleController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\WithdrawalAccountController;
+use App\Models\Home_slider;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +61,9 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::resource('flash_sales', FlashSaleController::class);
     Route::resource('accounts', WithdrawalAccountController::class);
     Route::resource('pages', PageController::class);
+    Route::resource('home_sliders', HomeSliderController::class);
+    Route::get('home_sliders/create/2', [HomeSliderController::class, 'create2'])->name('home_sliders.create2');
+    Route::get('home_sliders/create/3', [HomeSliderController::class, 'create3'])->name('home_sliders.create3');
 
     // show all pages template 
     Route::get("/{page}", function ($page) {

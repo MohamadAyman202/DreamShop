@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
@@ -16,7 +17,8 @@ class Category extends Model
         return $this->hasMany(SubCategory::class);
     }
 
-    public function scopeActive($query) {
-        return $query->where('active', 1);
+    public function home_slider(): BelongsToMany
+    {
+        return $this->belongsToMany(Home_slider::class, 'home_slider_categories')->withTimestamps();
     }
 }
