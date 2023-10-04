@@ -5,7 +5,7 @@
     @include('includes.admin.head')
 </head>
 
-<body class="loading" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="fluid"
+<body class="loading overflow-hidden" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="fluid"
     data-rightbar-onstart="true">
 
 

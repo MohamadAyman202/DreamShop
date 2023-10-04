@@ -139,21 +139,21 @@
                                 <i class="uil-box"></i>
                                 <span> Accounts </span>
                             </a>
-                            
+
 
                         </li>
 
 
 
                         <li class="side-nav-item">
-                            <a href="{{ route("pages.index") }}" class="side-nav-link">
+                            <a href="{{ route('pages.index') }}" class="side-nav-link">
                                 <i class="uil-layer-group"></i>
                                 <span> Pages </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="{{ route("home_sliders.index") }}" class="side-nav-link">
+                            <a href="{{ route('home_sliders.index') }}" class="side-nav-link">
                                 <i class="uil-streering"></i>
                                 <span> Home Sliders </span>
                             </a>
@@ -161,34 +161,11 @@
                         </li>
 
                         <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarForms" aria-expanded="false"
-                                aria-controls="sidebarForms" class="side-nav-link">
+                            <a href="{{ route('banners.index') }}" class="side-nav-link">
                                 <i class="uil-document-layout-center"></i>
-                                <span> Forms </span>
-                                <span class="menu-arrow"></span>
+                                <span> Banners </span>
                             </a>
-                            <div class="collapse" id="sidebarForms">
-                                <ul class="side-nav-second-level">
-                                    <li>
-                                        <a href="form-elements.html">Basic Elements</a>
-                                    </li>
-                                    <li>
-                                        <a href="form-advanced.html">Form Advanced</a>
-                                    </li>
-                                    <li>
-                                        <a href="form-validation.html">Validation</a>
-                                    </li>
-                                    <li>
-                                        <a href="form-wizard.html">Wizard</a>
-                                    </li>
-                                    <li>
-                                        <a href="form-fileuploads.html">File Uploads</a>
-                                    </li>
-                                    <li>
-                                        <a href="form-editors.html">Editors</a>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </li>
 
                         <li class="side-nav-item">

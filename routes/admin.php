@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Auth\AdminController;
 use App\Http\Controllers\Admin\Auth\UserController;
 use App\Http\Controllers\AttributeController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\BundleDealsController;
 use App\Http\Controllers\CategoryController;
@@ -64,7 +65,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::resource('home_sliders', HomeSliderController::class);
     Route::get('home_sliders/create/2', [HomeSliderController::class, 'create2'])->name('home_sliders.create2');
     Route::get('home_sliders/create/3', [HomeSliderController::class, 'create3'])->name('home_sliders.create3');
-
+    Route::resource('banners', BannerController::class);
     // show all pages template 
     Route::get("/{page}", function ($page) {
         $page = substr_replace($page, '', strrpos($page, '.'));
