@@ -164,8 +164,12 @@ class HomeSliderController extends Controller
      * @param  \App\Models\Home_slider  $home_slider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Home_slider $home_slider)
+    public function destroy(Request $request)
     {
-        //
+        if ($request->id) {
+            Home_slider::query()->findOrFail($request->id)->delete();
+            return redirect()->back()->with('success', 'Successfully Deleted Silder Image');
+        }
+        return redirect()->back()->with('error', 'Not Successfully Deleted Silder Image');
     }
 }

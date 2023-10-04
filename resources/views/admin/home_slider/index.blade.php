@@ -31,28 +31,32 @@
 
             </ol>
             <div class="carousel-inner" role="listbox">
-                @forelse ($home_sliders as $key => $home_slider)
-                    @if ($home_slider->type == 1)
-                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                            <div class="links_image">
-                                <a href="{{ route('home_sliders.create') }}" class="btn btn-primary btn-m">Add Image</a>
-                                <a href="{{ route('home_sliders.edit', $home_slider->id) }}"
-                                    class="btn btn-primary btn-m">Edit</a>
-                                <a href="" data-bs-toggle="modal" data-id="{{ $home_slider->id }}"
-                                    data-title="{{ $home_slider->title }}" class="btn btn-primary btn-m"
-                                    data-bs-target="#danger-header-modal">
-                                    Delete
-                                </a>
+                @if ($home_sliders->count() != 0)
+                    @foreach ($home_sliders as $key => $home_slider)
+                        @if ($home_slider->type == 1)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                <div class="links_image">
+                                    <a href="{{ route('home_sliders.create') }}" class="btn btn-primary btn-m">Add Image</a>
+                                    <a href="{{ route('home_sliders.edit', $home_slider->id) }}"
+                                        class="btn btn-primary btn-m mx-1">Edit</a>
+                                    <a href="" data-bs-toggle="modal" data-id="{{ $home_slider->id }}"
+                                        data-title="{{ $home_slider->title }}" class="btn btn-primary btn-m"
+                                        data-bs-target="#danger-header-modal">
+                                        Delete
+                                    </a>
+                                </div>
+                                <img class="d-block img-fluid" src="{{ asset($home_slider->images) }}" alt="First slide"
+                                    style="width: 1200px;height:610px">
                             </div>
-                            <img class="d-block img-fluid" src="{{ asset($home_slider->images) }}" alt="First slide"
-                                style="width: 1200px;height:610px">
-                        </div>
-                    @endif
-                @empty
+                        @endif
+                    @endforeach
+                @else
                     <div class="links_image2">
                         <a href="{{ route('home_sliders.create') }}" class="btn btn-primary btn-m">Add Image</a>
                     </div>
-                @endforelse
+                @endif
+
+
 
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
@@ -67,37 +71,12 @@
 
         <div class="box">
             <div class="item1">
-                @foreach ($home_sliders as $home_slider)
-                    @if ($home_slider->type == 2)
-                        <div class="links_image">
-                            <img src="{{ asset($home_slider->images) }}" alt="">
-                        </div>
-                        <div class="btns">
-                            <a href="{{ route('home_sliders.edit', $home_slider->id) }}"
-                                class="btn btn-primary btn-m">Edit</a>
-                            <a href="" data-bs-toggle="modal" data-id="{{ $home_slider->id }}"
-                                data-title="{{ $home_slider->title }}" class="btn btn-primary btn-m"
-                                data-bs-target="#danger-header-modal">
-                                Delete
-                            </a>
-                        </div>
-                    @else
-                        @if ($home_slider->type !== 1 && $home_slider->type !== 1 && $home_slider->type !== 3)
-                            <div class="slider_image2">
-                                <a href="{{ route('home_sliders.create2') }}" class="btn btn-primary btn-m">Add
-                                    Image</a>
-                            </div>
-                        @endif
-                    @endif
-                @endforeach
-            </div>
 
-            <div class="item2">
-                <div class="links_image2">
-                    @foreach ($home_sliders as $home_slider)
-                        @if ($home_slider->type == 3)
+                @if ($home_sliders->count() > 1)
+                    @forelse ($home_sliders as $home_slider)
+                        @if ($home_slider->type == 2)
                             <div class="links_image">
-                                <img src="{{ asset($home_slider->images) }}" alt="">
+                                <img src="{{ asset($home_slider->images) }}" alt="" style="height: 295px">
                             </div>
                             <div class="btns">
                                 <a href="{{ route('home_sliders.edit', $home_slider->id) }}"
@@ -108,15 +87,45 @@
                                     Delete
                                 </a>
                             </div>
-                        @else
-                            @if ($home_slider->type !== 1 && $home_slider->type !== 2)
-                                <div class="slider_image2">
-                                    <a href="{{ route('home_sliders.create3') }}" class="btn btn-primary btn-m">Add
-                                        Image</a>
-                                </div>
-                            @endif
                         @endif
                     @endforeach
+                @else
+                    <div class="slider_image2">
+                        <a href="{{ route('home_sliders.create2') }}" class="btn btn-primary btn-m">Add
+                            Image</a>
+                    </div>
+                @endif
+
+            </div>
+
+            <div class="item2">
+                <div class="links_image2">
+                    @if ($home_sliders->count() > 2)
+                        @foreach ($home_sliders as $home_slider)
+                            @if ($home_slider->type == 3)
+                                <div class="links_image">
+                                    <img src="{{ asset($home_slider->images) }}" alt="" style="height: 295px">
+                                </div>
+                                <div class="btns">
+                                    <a href="{{ route('home_sliders.edit', $home_slider->id) }}"
+                                        class="btn btn-primary btn-m">Edit</a>
+                                    <a href="" data-bs-toggle="modal" data-id="{{ $home_slider->id }}"
+                                        data-title="{{ $home_slider->title }}" class="btn btn-primary btn-m"
+                                        data-bs-target="#danger-header-modal">
+                                        Delete
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                    @else
+                        <div class="slider_image2">
+                            <a href="{{ route('home_sliders.create3') }}" class="btn btn-primary btn-m">Add
+                                Image</a>
+                        </div>
+                    @endif
+
+
+
                 </div>
             </div>
         </div>
