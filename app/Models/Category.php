@@ -21,4 +21,8 @@ class Category extends Model
     {
         return $this->belongsToMany(Home_slider::class, 'home_slider_categories')->withTimestamps();
     }
+
+    public function banners():BelongsToMany {
+        return $this->belongsToMany(Banner::class, 'banner_source_categories')->withTimestamps();
+    }
 }

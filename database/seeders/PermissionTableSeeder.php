@@ -10,29 +10,29 @@ class PermissionTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
-     */
-    protected function getDefaultGuardName(): string
-    {
-        return 'admin';
-    }
+    //  *
+    //  * @return void
+    //  */
+    // protected function getDefaultGuardName(): string
+    // {
+    //     return 'admin';
+    // }
 
-    public function run()
-    {
-        $permissions = [
-            'role-list',
-            'role-create',
-            'role-edit',
-            'role-delete',
-            'product-list',
-            'product-create',
-            'product-edit',
-            'product-delete'
-        ];
+    // public function run()
+    // {
+    //     $permissions = [
+    //         'role-list',
+    //         'role-create',
+    //         'role-edit',
+    //         'role-delete',
+    //         'product-list',
+    //         'product-create',
+    //         'product-edit',
+    //         'product-delete'
+    //     ];
 
-        foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission, 'guard_name' => 'admin']);
-        }
-    }
+    //     foreach ($permissions as $permission) {
+    //         Permission::create(['name' => $permission, 'guard_name' => 'admin']);
+    //     }
+    // }
 }

@@ -47,7 +47,7 @@
                                             <td>{{ $i }}</td>
                                             <td>
 
-                                                <img width="100" src="{{ asset($brand->images) }}" alt=""
+                                                <img width="60" height="60" src="{{ asset($brand->images) }}" alt=""
                                                     class="me-2">
                                                 {{ $brand->title }}
                                             </td>

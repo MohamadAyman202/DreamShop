@@ -54,13 +54,14 @@
                                         <?php $i++; ?>
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td class="d-flex justify-content-between align-items-center ">
+                                            <td class="d-flex align-items-center ">
                                                 <div class="imagess" style="width:60px">
-                                                    <img style="max-width: 50px" src="{{ asset($product->images[0]) }}"
+                                                    <img style="max-width: 50px"
+                                                        src="{{ is_array($product->images) ? asset($product->images[0]) : asset($product->images) }}"
                                                         alt="" class="me-2">
                                                 </div>
-                                                <div class="title d-flex justify-content-center align-items-center"
-                                                    style="padding:10px;width:100%">
+                                                <div class="title d-flex"
+                                                    style="padding:10px;width:400px;white-space: initial;">
                                                     {{ $product->title }}
                                                 </div>
                                             </td>

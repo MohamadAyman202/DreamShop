@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Admin;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
@@ -17,10 +15,30 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        $admin = Admin::create([
-            'name' => 'Admin',
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('admin'),
-        ]);
+        $admin = Admin::where('email', 'admin@mail.com')->first();
+        if(is_null($admin)){
+            $admin = new Admin();
+            $admin->id = 1;
+            $admin->name = 'Admin';
+            $admin->email = 'admin@mail.com';
+            $admin->password = Hash::make('123456');
+            $admin->save();
+
+            $admin->roles()->detach();
+            $admin->assignRole(['superadmin']);
+        }
+
+        $vendor = Admin::where('email', 'vendor@mail.com')->first();
+        if(is_null($vendor)){
+            $vendor = new Admin();
+            $admin->id = 2;
+            $vendor->name = 'Vendor';
+            $vendor->email = 'vendor@mail.com';
+            $vendor->password = Hash::make('123456');
+            $vendor->save();
+
+            $vendor->roles()->detach();
+            $vendor->assignRole(['vendor']);
+        }
     }
 }

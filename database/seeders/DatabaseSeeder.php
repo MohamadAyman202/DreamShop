@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\CollectionWithProduct;
+use App\Models\SubscriptionEmailFormat;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,14 +15,43 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
-        $this->call(PermissionTableSeeder::class);
+        $this->call(RolePermissionSeeder::class);
         $this->call(AdminSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(SubCategorySeeder::class);
+        $this->call(BrandSeeder::class);
+        $this->call(AttributeSeeder::class);
+        $this->call(AttributeValueSeeder::class);
+        $this->call(TaxRuleSeeder::class);
+        $this->call(CollectionSeeder::class);
+        $this->call(BundleDealSeeder::class);
+        $this->call(VoucherSeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(CollectionWithProductSeeder::class);
+        /* ****************************************************************************** */
+        // $this->call(PaymentSeeder::class);
+        // $this->call(SettingSeeder::class);
+        // $this->call(PageSeeder::class);
+        // $this->call(FooterImageLinkSeeder::class);
+        // $this->call(FooterLinkSeeder::class);
+        // $this->call(ShippingRulesSeeder::class);
+        // $this->call(ShippingPlaceSeeder::class);
+        // $this->call(HomeSliderSeeder::class);
+        // $this->call(BannerSeeder::class);
+        // $this->call(FlashSaleSeeder::class);
+        // $this->call(FlashSaleProductSeeder::class);
+        // $this->call(UserSeeder::class);
+        // $this->call(UserAddressSeeder::class);
+        // $this->call(UpdatedInventorySeeder::class);
+        // $this->call(InventoryAttributeSeeder::class);
+        // $this->call(OrderSeeder::class);
+        // $this->call(OrderedProductSeeder::class);
+        // $this->call(RatingReviewSeeder::class);
+        // $this->call(ReviewImageSeeder::class);
+        // $this->call(WithdrawalAccountSeeder::class);
+        // $this->call(WithdrawalSeeder::class);
+        // $this->call(SubscriptionEmailFormatSeeder::class);
+        // $this->call(SiteSettingSeeder::class);
+        // $this->call(StoreSeeder::class);
     }
 }

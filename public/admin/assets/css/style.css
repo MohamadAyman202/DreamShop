@@ -72,3 +72,17 @@
 .item1 {
     margin-bottom: 10px;
 }
+
+.per {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap !important;
+    max-height: 500px;
+    width: 100%;
+    overflow-y: auto;
+    flex-flow: column;
+}
+
+.per label {
+    margin-right: 15px;
+}

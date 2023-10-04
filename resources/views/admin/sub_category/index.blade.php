@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <div class="pb-3 pt-1 text-end">
                         <a href="{{ route('sub-category.create') }}" class="btn btn-primary ps-4 pe-4">Create
-                            Sub-Category</a>
+                            {{ $title }}</a>
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane show active" id="buttons-table-preview">
@@ -51,7 +51,7 @@
                                             <td>{{ $i }}</td>
                                             <td>
 
-                                                <img width="100" src="{{ asset($sub_category->images) }}" alt=""
+                                                <img width="60" height="60" src="{{ asset($sub_category->images) }}" alt=""
                                                     class="me-2">
                                                 {{ $sub_category->title }}
                                             </td>

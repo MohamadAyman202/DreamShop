@@ -18,8 +18,8 @@
             <div class="card mb-0">
                 <div class="card-body">
                     <div class="pb-3 pt-1 text-end">
-                        <a href="{{ route('brands.create') }}" class="btn btn-primary ps-4 pe-4">Create
-                            Brand</a>
+                        <a href="{{ route('banners.create') }}" class="btn btn-primary ps-4 pe-4">Create
+                            {{ $title }}</a>
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane show active" id="buttons-table-preview">

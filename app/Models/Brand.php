@@ -15,4 +15,8 @@ class Brand extends Model
     {
         return $this->belongsToMany(Home_slider::class, 'home_slider_brands')->withTimestamps();
     }
+
+    public function banners():BelongsToMany {
+        return $this->belongsToMany(Banner::class, 'banner_source_brands')->withTimestamps();
+    }
 }
