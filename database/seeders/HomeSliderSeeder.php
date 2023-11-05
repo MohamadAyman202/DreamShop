@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\HomeSlider;
-use App\Models\HomeSliderSourceBrand;
-use App\Models\HomeSliderSourceCategory;
-use App\Models\HomeSliderSourceSubCategory;
+use App\Models\Home_slider;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
+
+use function PHPSTORM_META\type;
 
 class HomeSliderSeeder extends Seeder
 {
@@ -22,55 +22,60 @@ class HomeSliderSeeder extends Seeder
             [
                 'id' => 1,
                 'type' => Config::get('constants.homeSlider.MAIN'),
-                'image' => 'slider-1.webp',
+                'images' => 'uploads/slider-1.webp',
                 'title' => 'Winter sale',
-                'source_type' => Config::get('constants.sliderSourceType.CATEGORY'),
-                'status' => Config::get('constants.status.PUBLIC'),
+                'source_type' => 1,
+                'status' => 1,
+                'type' => 1,
                 'admin_id' => 1
             ],
             [
                 'id' => 2,
                 'type' => Config::get('constants.homeSlider.MAIN'),
-                'image' => 'slider-2.webp',
+                'images' => 'uploads/slider-2.webp',
                 'title' => 'Flash 50 % off',
-                'source_type' => Config::get('constants.sliderSourceType.CATEGORY'),
-                'status' => Config::get('constants.status.PUBLIC'),
+                'source_type' => 1,
+                'status' => 1,
+                'type' => 1,
                 'admin_id' => 1
             ],
             [
                 'id' => 3,
                 'type' => Config::get('constants.homeSlider.MAIN'),
-                'image' => 'slider-3.webp',
+                'images' => 'uploads/slider-3.webp',
                 'title' => 'Black Friday Discount',
-                'source_type' => Config::get('constants.sliderSourceType.CATEGORY'),
-                'status' => Config::get('constants.status.PUBLIC'),
+                'source_type' => 1,
+                'status' => 1,
+                'type' => 1,
                 'admin_id' => 1
             ],
             [
                 'id' => 4,
                 'type' => Config::get('constants.homeSlider.RIGHT_TOP'),
-                'image' => 'slider-4.webp',
+                'images' => 'uploads/slider-4.webp',
                 'title' => 'Backpack for Men',
-                'source_type' => Config::get('constants.sliderSourceType.SUB_CATEGORY'),
-                'status' => Config::get('constants.status.PUBLIC'),
+                'source_type' => 4,
+                'status' => 1,
+                'type' => 2,
                 'admin_id' => 1
             ],
             [
                 'id' => 5,
                 'type' => Config::get('constants.homeSlider.RIGHT_BOTTOM'),
-                'image' => 'slider-5.webp',
+                'images' => 'uploads/slider-5.webp',
                 'title' => 'Puma Stylist Shoes',
-                'source_type' => Config::get('constants.sliderSourceType.BRAND'),
-                'status' => Config::get('constants.status.PUBLIC'),
+                'source_type' => 2,
+                'status' => 1,
+                'type' => 3,
                 'admin_id' => 1
             ]
         ];
 
         foreach ($homeSliders as $i) {
-            HomeSlider::create($i);
+            Home_slider::create($i);
         }
 
-        // Source seeders for main slider image
+        // Source seeders for main slider images
         $categorySource = [
             [
                 'category_id' => 63082111,
@@ -102,10 +107,10 @@ class HomeSliderSeeder extends Seeder
             ]
         ];
         foreach ($categorySource as $i) {
-            HomeSliderSourceCategory::create($i);
+            DB::table('home_slider_categories')->insert($i);
         }
 
-        // Source seeders for slider image right top
+        // Source seeders for slider images right top
         $subCategorySource = [
             [
                 'sub_category_id' => 97373117,
@@ -125,10 +130,10 @@ class HomeSliderSeeder extends Seeder
             ]
         ];
         foreach ($subCategorySource as $i) {
-            HomeSliderSourceSubCategory::create($i);
+            DB::table('home_slider_sub_categories')->insert($i);
         }
 
-        // Source seeders for slider image right top
+        // Source seeders for slider images right top
         $bandSource = [
             [
                 'brand_id' => 9442200,
@@ -148,7 +153,7 @@ class HomeSliderSeeder extends Seeder
             ]
         ];
         foreach ($bandSource as $i) {
-            HomeSliderSourceBrand::create($i);
+            DB::table('home_slider_brands')->insert($i);
         }
     }
 }

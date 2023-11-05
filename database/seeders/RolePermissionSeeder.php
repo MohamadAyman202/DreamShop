@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -133,8 +135,13 @@ class RolePermissionSeeder extends Seeder
         ];
 
         // Assign permissions
+        $user =  User::query()->find(1);
         foreach ($permissions as $key => $permission) {
-            Permission::create(['name' => $permission, 'guard_name' => 'admin']);
+            $permissionss =  Permission::create(['name' => $permission, 'guard_name' => 'admin']);
+            DB::table('role_has_permissions')->insert([
+                'permission_id' => $key + 1,
+                'role_id' => 1,
+            ]);
         }
     }
 }

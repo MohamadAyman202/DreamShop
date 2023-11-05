@@ -30,11 +30,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        $categories = Category::query()->select('title', 'id')->get();
-        $brands = Brand::query()->select('title', 'id')->get();
-        $products = Product::query()->select('title')->get();
-        $sub_categories = SubCategory::query()->get();
-        return view('admin.banner.create', compact('categories', 'brands', 'products', 'sub_categories'));
+        //  
     }
 
     /**
@@ -45,33 +41,7 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $data = $request->except('_token', 'category_id', 'brand_id', 'product_id', 'sub_categories_id');
-            if ($data) {
-
-                if ($request->hasFile('images')) {
-                    $data['images'] = FileUpload::File('storage/pages/', $data['images']);
-                }
-
-                $data['admin_id'] = auth()->user()->id;
-                $home_slider =  Banner::query()->create($data);
-
-                if ($data['source_type'] == 1) {
-                    $home_slider->categories()->sync($request->category_id);
-                } elseif ($data['source_type'] == 2) {
-                    $home_slider->brands()->sync($request->brand_id);
-                } elseif ($data['source_type'] == 3) {
-                    $home_slider->products()->sync($request->product_id);
-                } else {
-                    $home_slider->sub_categories()->sync($request->sub_category_id);
-                }
-                
-                return redirect()->back()->with('success', 'Successfully Created Home Slider');
-            }
-            return redirect()->back()->with('error', 'Not Successfully Created Home Slider');
-        } catch (\Exception $ex) {
-            return redirect()->back()->withErrors(['error' => $ex->getMessage()]);
-        }
+        // 
     }
 
     /**
@@ -93,7 +63,11 @@ class BannerController extends Controller
      */
     public function edit(Banner $banner)
     {
-        //
+        $categories = Category::query()->select('title', 'id')->get();
+        $brands = Brand::query()->select('title', 'id')->get();
+        $products = Product::query()->select('title')->get();
+        $sub_categories = SubCategory::query()->get();
+        return view('admin.banner.edit', compact('banner','categories', 'brands', 'products', 'sub_categories'));
     }
 
     /**
@@ -105,7 +79,33 @@ class BannerController extends Controller
      */
     public function update(Request $request, Banner $banner)
     {
-        //
+        try {
+            $data = $request->except('_token', 'category_id', 'brand_id', 'product_id', 'sub_categories_id');
+            if ($data) {
+
+                if ($request->hasFile('images')) {
+                    $data['images'] = FileUpload::File('storage/pages/', $data['images']);
+                }
+
+                $data['admin_id'] = auth()->user()->id;
+                $home_slider =  Banner::query()->create($data);
+
+                if ($data['source_type'] == 1) {
+                    $home_slider->categories()->sync($request->category_id);
+                } elseif ($data['source_type'] == 2) {
+                    $home_slider->brands()->sync($request->brand_id);
+                } elseif ($data['source_type'] == 3) {
+                    $home_slider->products()->sync($request->product_id);
+                } else {
+                    $home_slider->sub_categories()->sync($request->sub_category_id);
+                }
+
+                return redirect()->back()->with('success', 'Successfully Created Home Slider');
+            }
+            return redirect()->back()->with('error', 'Not Successfully Created Home Slider');
+        } catch (\Exception $ex) {
+            return redirect()->back()->withErrors(['error' => $ex->getMessage()]);
+        }
     }
 
     /**

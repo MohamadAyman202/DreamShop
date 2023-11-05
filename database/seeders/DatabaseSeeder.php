@@ -28,19 +28,20 @@ class DatabaseSeeder extends Seeder
         $this->call(VoucherSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(CollectionWithProductSeeder::class);
+        $this->call(FlashSaleSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(WithdrawalAccountSeeder::class); 
+        $this->call(PageSeeder::class);
+        $this->call(HomeSliderSeeder::class);
+        $this->call(FlashSaleProductSeeder::class);
+        $this->call(BannerSeeder::class);
         /* ****************************************************************************** */
         // $this->call(PaymentSeeder::class);
         // $this->call(SettingSeeder::class);
-        // $this->call(PageSeeder::class);
         // $this->call(FooterImageLinkSeeder::class);
         // $this->call(FooterLinkSeeder::class);
         // $this->call(ShippingRulesSeeder::class);
         // $this->call(ShippingPlaceSeeder::class);
-        // $this->call(HomeSliderSeeder::class);
-        // $this->call(BannerSeeder::class);
-        // $this->call(FlashSaleSeeder::class);
-        // $this->call(FlashSaleProductSeeder::class);
-        // $this->call(UserSeeder::class);
         // $this->call(UserAddressSeeder::class);
         // $this->call(UpdatedInventorySeeder::class);
         // $this->call(InventoryAttributeSeeder::class);
@@ -48,7 +49,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(OrderedProductSeeder::class);
         // $this->call(RatingReviewSeeder::class);
         // $this->call(ReviewImageSeeder::class);
-        // $this->call(WithdrawalAccountSeeder::class);
         // $this->call(WithdrawalSeeder::class);
         // $this->call(SubscriptionEmailFormatSeeder::class);
         // $this->call(SiteSettingSeeder::class);

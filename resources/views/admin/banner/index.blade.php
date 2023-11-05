@@ -17,10 +17,6 @@
         <div class="col-12">
             <div class="card mb-0">
                 <div class="card-body">
-                    <div class="pb-3 pt-1 text-end">
-                        <a href="{{ route('banners.create') }}" class="btn btn-primary ps-4 pe-4">Create
-                            {{ $title }}</a>
-                    </div>
                     <div class="tab-content">
                         <div class="tab-pane show active" id="buttons-table-preview">
                             <table id="datatable-buttons"
@@ -41,17 +37,26 @@
                                         <?php $i++; ?>
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $banner->images }}</td>
+                                            <td><img src=" {{ asset($banner->images) }}"
+                                                    @if ($banner->type == 'Beside featured brands' || $banner->type == 'Bottom of flash sale section') width="300" height="150"
+                                                    width="300" height="150"
+                                                    @elseif($banner->type == 'Top of daily discover')
+                                                    width="300" height="45"
+                                                    @elseif($banner->type == 'Bottom of daily discover')
+                                                    width="300" height="37.5"
+                                                    @elseif($banner->type == 'Detail page(beside rating)')
+                                                    width="225" height="300"
+                                                    @elseif($banner->type == 'Top banner')
+                                                    width="300" height="12"
+                                                    @else
+                                                    width="300" height="300" @endif
+                                                    alt=""></td>
                                             <td>{{ $banner->type }}</td>
                                             <td>{{ $banner->status }}</td>
-                                            <td>{{ $banner->soucre_type }}</td>
+                                            <td>{{ $banner->source_type }}</td>
                                             <td>
-                                                <a href="{{ route('brands.edit', $brand->id) }}">
+                                                <a href="{{ route('banners.edit', $banner->id) }}">
                                                     <i class='uil uil-pen btn-info btn-sm'></i>
-                                                </a>
-                                                <a href="" data-bs-toggle="modal" data-id="{{ $brand->id }}"
-                                                    data-title="{{ $brand->title }}" data-bs-target="#danger-header-modal">
-                                                    <i class='uil uil-trash btn-danger btn-sm'></i>
                                                 </a>
                                             </td>
                                         </tr>

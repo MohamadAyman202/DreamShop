@@ -20,8 +20,8 @@ class UserSeeder extends Seeder
                 'name' => 'John Doe',
                 'email' => 'john@mail.com',
                 'password' => 'test',
-                'google_id' => '453972431532227638935',
-                'verified' => 1,
+                // 'google_id' => '453972431532227638935',
+                // 'verified' => 1,
             ]
         ];
 

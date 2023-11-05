@@ -6,6 +6,7 @@ use App\Models\Banner;
 use App\Models\BannerSourceBrand;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 
 class BannerSeeder extends Seeder
 {
@@ -19,93 +20,89 @@ class BannerSeeder extends Seeder
         $banners = [
             [
                 'id' => 1,
-                'type' => Config::get('constants.banner.BANNER_1'),
-                'image' => 'banner-1.webp',
+                'source_type' => 'Brands',
+                'images' => 'uploads/banner-1.webp',
                 'title' => 'Sale',
-                'source_type' => Config::get('constants.sliderSourceType.BRAND'),
-                'status' => Config::get('constants.status.PUBLIC'),
-                'closable' => Config::get('constants.status.PRIVATE'),
+                'type' => 'Beside featured brands',
+                'status' => 1,
+
                 'admin_id' => 1
             ],
             [
                 'id' => 2,
-                'type' => Config::get('constants.banner.BANNER_2'),
-                'image' => 'banner-2.webp',
+                'source_type' => 'Brands',
+                'images' => 'uploads/banner-2.webp',
                 'title' => 'Voucher',
-                'url' => '/homesick-new-home-reed-diffuser/product/88630161',
-                'source_type' => Config::get('constants.sliderSourceType.URL'),
-                'status' => Config::get('constants.status.PUBLIC'),
-                'closable' => Config::get('constants.status.PRIVATE'),
+
+                'type' => 'Bottom of flash sale section',
+                'status' => 1,
+
                 'admin_id' => 1
             ],
             [
                 'id' => 3,
-                'type' => Config::get('constants.banner.BANNER_3'),
-                'image' => 'banner-3.webp',
+                'source_type' => 'Brands',
+                'images' => 'uploads/banner-3.webp',
                 'title' => 'Discount',
-                'source_type' => Config::get('constants.sliderSourceType.BRAND'),
-                'status' => Config::get('constants.status.PUBLIC'),
-                'closable' => Config::get('constants.status.PRIVATE'),
+                'type' => 'Bottom of flash sale section',
+                'status' => 1,
+
                 'admin_id' => 1
             ],
             [
                 'id' => 4,
-                'type' => Config::get('constants.banner.BANNER_4'),
-                'image' => 'banner-4.webp',
+                'source_type' => 'Brands',
+                'images' => 'uploads/banner-4.webp',
                 'title' => 'Black friday',
-                'source_type' => Config::get('constants.sliderSourceType.BRAND'),
-                'status' => Config::get('constants.status.PUBLIC'),
-                'closable' => Config::get('constants.status.PRIVATE'),
+                'type' => 'Bottom of flash sale section',
+                'status' => 1,
+
                 'admin_id' => 1
             ],
             [
                 'id' => 5,
-                'type' => Config::get('constants.banner.BANNER_5'),
-                'image' => 'banner-5.webp',
+                'source_type' => 'Brands',
+                'images' => 'uploads/banner-5.webp',
                 'title' => 'Summer fashion',
-                'source_type' => Config::get('constants.sliderSourceType.BRAND'),
-                'status' => Config::get('constants.status.PUBLIC'),
-                'closable' => Config::get('constants.status.PRIVATE'),
+                'type' => 'Top of daily discover',
+                'status' => 1,
+
                 'admin_id' => 1
             ],
             [
                 'id' => 6,
-                'type' => Config::get('constants.banner.BANNER_6'),
-                'image' => 'banner-6.webp',
+                'source_type' => 'Brands',
+                'images' => 'uploads/banner-6.webp',
                 'title' => 'Autumn Offer',
-                'source_type' => Config::get('constants.sliderSourceType.BRAND'),
-                'status' => Config::get('constants.status.PUBLIC'),
-                'closable' => Config::get('constants.status.PRIVATE'),
+                'type' => 'Bottom of daily discover',
+                'status' => 1,
                 'admin_id' => 1
             ],
             [
                 'id' => 7,
-                'type' => Config::get('constants.banner.BANNER_7'),
-                'image' => 'banner-7.webp',
+                'source_type' => 'Brands',
+                'images' => 'uploads/banner-7.webp',
                 'title' => 'Christmas Offer',
-                'source_type' => Config::get('constants.sliderSourceType.BRAND'),
-                'status' => Config::get('constants.status.PUBLIC'),
-                'closable' => Config::get('constants.status.PRIVATE'),
+                'type' => 'Detail page(beside rating)',
+                'status' => 1,
                 'admin_id' => 1
             ],
             [
                 'id' => 8,
-                'type' => Config::get('constants.banner.BANNER_8'),
-                'image' => 'banner-8.webp',
+                'source_type' => 'Brands',
+                'images' => 'uploads/banner-8.webp',
                 'title' => '45% Off',
-                'source_type' => Config::get('constants.sliderSourceType.BRAND'),
-                'status' => Config::get('constants.status.PUBLIC'),
-                'closable' => Config::get('constants.status.PUBLIC'),
+                'type' => 'Top banner',
+                'status' => 1,
                 'admin_id' => 1
             ],
             [
                 'id' => 9,
-                'type' => Config::get('constants.banner.BANNER_9'),
-                'image' => 'banner-9.png',
+                'source_type' => 'Brands',
+                'images' => 'uploads/banner-9.png',
                 'title' => 'Free shipping',
-                'source_type' => Config::get('constants.sliderSourceType.BRAND'),
-                'status' => Config::get('constants.status.PUBLIC'),
-                'closable' => Config::get('constants.status.PUBLIC'),
+                'type' => 'Popup banner',
+                'status' => 1,
                 'admin_id' => 1
             ]
         ];
@@ -114,7 +111,7 @@ class BannerSeeder extends Seeder
             Banner::create($i);
         }
 
-        // Source seeders for slider image right top
+        // Source seeders for slider images right top
         $bandSource = [
             [
                 'brand_id' => 9442200,
@@ -134,7 +131,7 @@ class BannerSeeder extends Seeder
             ]
         ];
         foreach ($bandSource as $i) {
-            BannerSourceBrand::create($i);
+            DB::table('banner_source_brands')->insert($i);
         }
     }
 }

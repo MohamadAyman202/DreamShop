@@ -27,7 +27,7 @@ class PageSeeder extends Seeder
                 'title' => 'About',
                 'description' => $about,
                 'slug' => 'about',
-                'meta_title' => 'Ishop - About',
+                'meta_title' => 'DreamShop - About',
                 'meta_description' => 'About',
                 'admin_id' => 1
             ],
@@ -37,7 +37,7 @@ class PageSeeder extends Seeder
                 'description' => $faq,
 
                 'slug' => 'faq',
-                'meta_title' => 'Ishop - Faq',
+                'meta_title' => 'DreamShop - Faq',
                 'meta_description' => 'Faq',
                 'admin_id' => 1
             ],
@@ -46,8 +46,7 @@ class PageSeeder extends Seeder
                 'title' => 'Contact',
                 'description' => 'Contact',
                 'slug' => 'contact',
-                'meta_title' => 'Ishop - Contact',
-                'page_from_component' => 1,
+                'meta_title' => 'DreamShop - Contact',
                 'meta_description' => 'Contact',
                 'admin_id' => 1
             ],
@@ -57,7 +56,7 @@ class PageSeeder extends Seeder
                 'title' => 'Refund Policy',
                 'description' => $refundPolicy,
                 'slug' => 'refund-policy',
-                'meta_title' => 'Ishop - Refund Policy',
+                'meta_title' => 'DreamShop - Refund Policy',
                 'meta_description' => 'Refund Policy',
                 'admin_id' => 1
             ],
@@ -66,7 +65,7 @@ class PageSeeder extends Seeder
                 'title' => 'Privacy Policy',
                 'description' => $privacyPolicy,
                 'slug' => 'privacy-policy',
-                'meta_title' => 'Ishop - Privacy Policy',
+                'meta_title' => 'DreamShop - Privacy Policy',
                 'meta_description' => 'Privacy Policy',
                 'admin_id' => 1
             ],
@@ -75,7 +74,7 @@ class PageSeeder extends Seeder
                 'title' => 'Help',
                 'description' => $help,
                 'slug' => 'help',
-                'meta_title' => 'Ishop - Help',
+                'meta_title' => 'DreamShop - Help',
                 'meta_description' => 'Help',
                 'admin_id' => 1
             ],
@@ -84,9 +83,8 @@ class PageSeeder extends Seeder
                 'title' => 'Sitemap',
                 'description' => 'Sitemap',
                 'slug' => 'sitemap',
-                'meta_title' => 'Ishop - Sitemap',
+                'meta_title' => 'DreamShop - Sitemap',
                 'meta_description' => 'Sitemap',
-                'page_from_component' => 1,
                 'admin_id' => 1
             ]
         ];

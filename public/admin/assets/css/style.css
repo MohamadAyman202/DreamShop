@@ -68,6 +68,23 @@
 .item1 {
     border: 1px solid #ddd;
 }
+.btns {
+    display: flex;
+    flex-direction: column;
+}
+.btns a:first-child {
+    margin-bottom: 15px;
+}
+.btns a,
+.links_image a {
+    opacity: 0.7;
+}
+
+.btns a:hover,
+.links_image a:hover {
+    opacity: 1;
+    transition: 0.4s;
+}
 
 .item1 {
     margin-bottom: 10px;

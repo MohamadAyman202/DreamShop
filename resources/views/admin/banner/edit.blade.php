@@ -13,7 +13,7 @@
     {{ $title }}
 @stop
 @section('url')
-    {{ route('home_sliders.index') }}
+    {{ route('banners.index') }}
 @endsection
 @section('content')
     <div class="row">
@@ -29,7 +29,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('home_sliders.update', $home_slider->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('banners.update', $banner->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
@@ -38,7 +38,7 @@
                             <input type="text" name="title" id="title"
                                 class="form-control @error('title') is-invalid @enderror"wire:modal="slug"
                                 wire:model="title" placeholder="Title" aria-describedby="helpId"
-                                value="{{ $home_slider->title }}">
+                                value="{{ $banner->title }}">
                             @error('title')
                                 <small id="helpId" class="text-danger">{{ $message }}</small>
                             @enderror
@@ -49,7 +49,7 @@
 
                                 Photo Preview:
                                 <div class="box-size">
-                                    <img id="previewImg" src="{{ asset($home_slider->images) }}" class="icons-box2">
+                                    <img id="previewImg" src="{{ asset($banner->images) }}" class="icons-box2">
                                 </div>
                             </div>
                             <div class="files">
@@ -67,13 +67,13 @@
                                     <div class="mb-3">
                                         <label for="" class="form-label">Source Type</label>
                                         <select class="form-select form-select-md" name="source_type" id="source_type">
-                                            <option value="1" {{ $home_slider->source_type == 1 ? 'selected' : '' }}>
+                                            <option value="1" {{ $banner->source_type == 1 ? 'selected' : '' }}>
                                                 Categories</option>
-                                            <option value="2" {{ $home_slider->source_type == 2 ? 'selected' : '' }}>
+                                            <option value="2" {{ $banner->source_type == 2 ? 'selected' : '' }}>
                                                 Brands</option>
-                                            <option value="3" {{ $home_slider->source_type == 3 ? 'selected' : '' }}>
+                                            <option value="3" {{ $banner->source_type == 3 ? 'selected' : '' }}>
                                                 Products</option>
-                                            <option value="4" {{ $home_slider->source_type == 4 ? 'selected' : '' }}>
+                                            <option value="4" {{ $banner->source_type == 4 ? 'selected' : '' }}>
                                                 Sub Categories</option>
                                         </select>
                                     </div>
@@ -84,9 +84,9 @@
                                         <label for="" class="form-label">Status</label>
                                         <select name="status"
                                             class="form-select form-select-md @error('status') is-invalid @enderror">
-                                            <option value="0" {{ $home_slider->status == 0 ? 'selected' : '' }}>
+                                            <option value="0" {{ $banner->status == 0 ? 'selected' : '' }}>
                                                 Private</option>
-                                            <option value="1" {{ $home_slider->status == 1 ? 'selected' : '' }}>
+                                            <option value="1" {{ $banner->status == 1 ? 'selected' : '' }}>
                                                 Public</option>
                                         </select>
                                         @error('status')
@@ -97,16 +97,16 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 col-lg-6 col-sm-6 " id="categories"
-                                    style={{ $home_slider->source_type == 1 ? 'display: block' : 'none' }}>
+                                    style={{ $banner->source_type == 1 ? 'display: block' : 'none' }}>
                                     <div class="mb-3">
                                         <select class="form-select form-select-md" name="category_id[]" id="source_type"
                                             multiple>
-
-                                            @foreach ($categories as $item)
-                                                @foreach ($home_slider->categories as $category)
+                                            @foreach ($categories as $category)
+                                                @foreach ($banner->categories as $item)
                                                     <option value="{{ $category->id }}"
-                                                        {{ $category->id === $item->id ? 'selected' : '' }}>
-                                                        {{ $category->title }}</option>
+                                                        {{ $category->id == $item->id ? 'selected' : '' }}>
+                                                        {{ $category->title }}
+                                                    </option>
                                                 @endforeach
                                             @endforeach
                                         </select>
@@ -116,9 +116,13 @@
                                     <div class="mb-3">
                                         <select class="form-select form-select-md" name="brand_id[]" id="source_type"
                                             multiple>
-                                            @isset($categories)
-                                                @foreach ($brands as $brand)
-                                                    <option value="{{ $brand->id }}">{{ $brand->title }}</option>
+                                            @isset($brands)
+                                                @foreach ($banner->brands as $item)
+                                                    @foreach ($brands as $brand)
+                                                        <option value="{{ $brand->id }}"
+                                                            {{ $brand->id == $item->id ? 'selected' : '' }}>
+                                                            {{ $brand->title }}</option>
+                                                    @endforeach
                                                 @endforeach
                                             @endisset
                                         </select>
@@ -150,7 +154,7 @@
                                     </div>
                                 </div>
                             </div>
-                        
+
                         </div>
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary">Submit</button>

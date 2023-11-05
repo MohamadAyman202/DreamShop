@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\FlashSaleProduct;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class FlashSaleProductSeeder extends Seeder
 {
@@ -150,7 +151,7 @@ class FlashSaleProductSeeder extends Seeder
         ];
 
         foreach ($items as $i) {
-            FlashSaleProduct::create($i);
+            DB::table('flash_sale_product')->insert($i);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\WithdrawalAccount;
+use App\Models\Withdrawal_account;
 use Illuminate\Database\Seeder;
 
 class WithdrawalAccountSeeder extends Seeder
@@ -18,9 +18,9 @@ class WithdrawalAccountSeeder extends Seeder
             [
                 'id' => 1,
                 'account_number' => '1212334454',
-                'account_name' => 'John Doe',
-                'bank_name' => 'State Bank',
-                'branch_name' => 'Quebec',
+                'account_name' => 'Mohamad Ayman',
+                'bank_name' => 'Al Ahly Bank',
+                'branch_name' => 'EG',
                 'title' => 'Default',
                 'default' => 1,
                 'admin_id' => 2
@@ -28,7 +28,7 @@ class WithdrawalAccountSeeder extends Seeder
         ];
 
         foreach ($items as $i) {
-            WithdrawalAccount::create($i);
+            Withdrawal_account::create($i);
         }
     }
 }

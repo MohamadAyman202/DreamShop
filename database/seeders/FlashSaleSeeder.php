@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\FlashSale;
+use App\Models\Flash_sale;
 use Illuminate\Database\Seeder;
 
 class FlashSaleSeeder extends Seeder
@@ -26,7 +26,8 @@ class FlashSaleSeeder extends Seeder
         ];
 
         foreach ($items as $i) {
-            FlashSale::create($i);
+            Flash_sale::create($i);
+            
         }
     }
 }

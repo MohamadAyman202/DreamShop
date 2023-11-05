@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('type');
             $table->text('images');
-            $table->tinyInteger('source_type');
+            $table->string('source_type');
             $table->text('tags')->nullable();
             $table->tinyInteger('status');
             $table->foreignId('admin_id')->constrained();
